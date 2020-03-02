@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#test").click(function () {
+                console.log("button is pressed ");
+                $.ajax('backend1.php', {
+                    type: 'POST',  // http method
+                    success: function (data, status, xhr) {
+                        console.log(data);
+                        console.log(data.message);
+
+                       //$('p').append('status: ' + status + ', data: ' + data);
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        console.log(errorMessage);
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+<button id="test">DO</button>
+</body>
+</html>
